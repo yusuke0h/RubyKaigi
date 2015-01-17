@@ -1,24 +1,13 @@
 require 'json'
-require 'pp'
 
 data = JSON.load(open("testdata.json").read)
 
-
 operaters = [ "|", "&", "+", "*" ]
-operater_hash = {
-  "|": true,
-  "&": true,
-  "+": true,
-  "*": true,
-}
-
-tree = {}
 
 data.each do |line|
   print susiki =  line[1].to_s, "\t"
   print line.last, "\t"
   arr = susiki.scan(/\||&|\*|\+|\d+/)
-
 
   operaters.each do |operater|
     while index = arr.index(operater)
